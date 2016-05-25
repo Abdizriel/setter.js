@@ -1,6 +1,6 @@
 {
   "name": "setter.js",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "The Promise based set object parameters for the modern browsers and node.",
   "format": "es6",
   "main": "index.js",

@@ -19,7 +19,7 @@ var dataObj = {
     self.test = newValue;
     return new Promise(resolve => resolve(self));
   },
-  getTest2: () => {
+  setTest2: () => {
     const self = this;
     self.test2 = newValue;
     return new Promise(resolve => resolve(self));
@@ -45,11 +45,20 @@ let dataObj = {
 dataObj = setter(dataObj);
 
 await dataObj.setTest('updatedString');
-console.log(dataObj);
+
+let config = {
+  async: false,
+  multiple: false
+};
+dataObj = setter(dataObj, config);
+const testValue = dataObj.set('test', 'updatedString');
 
 ```
 
 ## API
 
-### setter(Object)
+### setter({Object} Object, {Object} [Config])
 Object - provided argument where you want to add set functions.
+Config - provided configuration object for additional options
+Config.async - default true - setter functions returns Promise
+Config.multiple - default true - if true you would add to object x setKey functions if false you would get only set('key', value) function
